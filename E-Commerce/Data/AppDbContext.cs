@@ -13,6 +13,9 @@ namespace E_Commerce.Data
         {
             modelBuilder.Entity<Product>(entity =>
             {
+                entity.HasIndex(p => p.Id)
+                      .IsUnique();
+
                 entity.Property(p => p.Name)
                       .IsRequired()
                       .HasMaxLength(200);
@@ -28,6 +31,9 @@ namespace E_Commerce.Data
 
             modelBuilder.Entity<Category>(entity =>
             {
+                entity.HasIndex(c => c.Id)
+                   .IsUnique();
+
                 entity.Property(c => c.Name)
                       .IsRequired()
                       .HasMaxLength(100);
